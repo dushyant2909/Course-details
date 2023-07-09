@@ -1,0 +1,14 @@
+.filterOptions-boundary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.filter-button{
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 10px;
+}

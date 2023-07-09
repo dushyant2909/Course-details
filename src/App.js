@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from "react";
+import Header from "./Components/Header";
+import AllCourses from "./Components/AllCourses";
+import { apiUrl, filterData } from "./Components/Data";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import FilterData from "./Components/FilterData";
 import './App.css';
 
 function App() {
+  const [courseData, setdata] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(apiUrl);
+        const fetchedData = await res.json();
+        setdata(fetchedData.data);
+      } catch (error) {
+        toast("Something went wrong...");
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header filterData={filterData} />
+      <div className="page-outer">
+        <FilterData filterData={filterData} />
+        <AllCourses courses={courseData} />
+      </div>
+    </>
   );
 }
 

@@ -1,0 +1,15 @@
+.courses-outer-box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 80%;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+@media (max-width: 999px) {
+  .courses-outer-box {
+    width: 82%;
+  }
+}
