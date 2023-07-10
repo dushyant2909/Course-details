@@ -11,4 +11,8 @@
     font-weight: bold;
     padding: 3px 10px;
     border-radius: 10px;
+    /* border: 2px solid white; */
+}
+.filter-button:active, .filter-button:focus{
+  border: 2px solid white;
 }

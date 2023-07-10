@@ -1,5 +1,4 @@
 import React from "react";
-import FilterData from "./FilterData";
 import './Header.css';
 
 function Header(props) {

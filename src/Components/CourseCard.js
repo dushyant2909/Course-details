@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import './CourseCard.css';
 import { FcLike } from "react-icons/fc";
+import { AiOutlineHeart } from "react-icons/ai";
+
 
 function CourseCard(props) {
     const [clickReadMore, setReadMore] = useState(false);
+    const [likeStatus, setlikeStatus] = useState(false);
     const courseData = props.courseData;
 
     function clickHandler() {
         setReadMore(!clickReadMore);
+    }
+
+    function heartClickHandler() {
+        setlikeStatus(!likeStatus);
     }
 
     const shortDescription = `${courseData.description.substring(0, 150)}..... `;
@@ -18,7 +25,7 @@ function CourseCard(props) {
                 <img className="course-image" src={courseData.image.url} alt={courseData.title} />
             </div>
             <div>
-                <button className="btn like-btn"><FcLike fontSize="1.7rem" /></button>
+                <button className="btn like-btn" onClick={heartClickHandler}>{likeStatus ? < FcLike /> : <AiOutlineHeart />}</button>
             </div>
             <div className="card-body">
 
